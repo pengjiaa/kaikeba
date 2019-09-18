@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //变量提升只声明，函数提升是声明加定义
+        console.log(window.a)
+
+        function a() {
+            console.log(2)
+
+        }
+        console.log(window.a)
+
+        var a = 3
+
+        console.log(window.a)
+
+        var b = 10
+        function num() {
+            var b = 100
+            return function () {
+                console.log(b)
+            }
+        }
+        var ff = num()
+        ff();
+        ~function () {
+            var b = 1000
+            ff()
+        }()
+
+        function ss() {
+            var numb = 88
+            console.log(numb)
+            return function () {
+                ++numb
+                console.log(numb)
+            }
+        }
+        var sss = ss()
+        sss()
+        sss()
+        ss()()
+        sss()
+        sss()
+
+        function fn2(i) {
+            return function (n) {
+                console.log(n + (++i))
+            }
+        }
+
+        var fn3 = fn2(13)
+        fn3(12)
+        fn3(14)
+
+        var cc = 2
+        var dd = 2
+        console.log(2 + cc++)
+        console.log(2 + ++dd);
+
+        let jjj = (function () {
+
+        })()
+        console.log(jjj)
+
+        var rr = 44
+        var ooo = {
+            rr: 3,
+            fn: (function (rr) {
+
+                return rr
+            })(rr)
+        }
+        console.log(ooo.fn)
+
+        var uu = 10
+        var uu = 9
+        console.log(uu)
+
+        var A = 12
+        function fn5() {
+            return function () {
+                console.log(A)
+                A += 10
+                console.log(A)
+            }
+        }
+        fn5()();
+        console.log(A)
+
+        var obj3 = {}
+        console.log(obj3)
+
+        function Ppp(name) {
+            this.name = name
+        }
+        Ppp.prototype.getName = function () {
+            console.log(this.name)
+        }
+        var ppp1 = new Ppp('zhangsan')
+        ppp1.getName()
+        console.log(ppp1.name)
+
+        console.log(ppp1.hasOwnProperty('name'))
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #table {
+            border-bottom: 1px solid #000;
+            border-right: 1px solid #000;
+        }
+
+        #table td {
+            padding: 6px;
+            display: inline-block;
+            width: 100px;
+            overflow: hidden;
+            border-left: 1px solid #000;
+            border-top: 1px solid #000;
+        }
+
+        .add {
+            width: 60px;
+            margin: 10px;
+        }
+
+        .popup {
+            position: fixed;
+            border: 1px solid #000;
+            padding: 20px;
+            width: 50%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%)
+        }
+
+        .popup div {
+            margin: 10px;
+        }
+
+        .submit,
+        .cancle {
+            width: 40%;
+        }
+
+        .popup .lable {
+            display: inline-block;
+            width: 100px;
+        }
+
+        #submit {
+            display: inline-block;
+            width: 140px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="add">添加</button>
+    <table id="table" border="0" cellspacing="0">
+        <tr>
+            <td>id</td>
+            <td>标题</td>
+            <td>图片地址</td>
+            <td>链接地址</td>
+            <td>序号</td>
+            <td>删除</td>
+            <td>修改</td>
+        </tr>
+        <%bannerList.forEach(item =>{%>
+        <tr>
+            <td><%-item.id%></td>
+            <td><%-item.title%></td>
+            <td><%-item.src%></td>
+            <td><%-item.href%></td>
+            <td><%-item.serial%></td>
+            <td><button>删除</button></td>
+            <td><button>修改</button></td>
+        </tr>
+        <%})%>
+    </table>
+    <form class="popup" action="<%=action%>" method="post" enctype="multipart/form-data">
+        <%fields.forEach(item=>{%>
+        <div>
+            <span class="lable"><%=item.title%></span><input type="<%=item.type%>" name="<%=item.name%>"><br>
+        </div>
+        <%})%>
+        <!-- <div>
+            <span class="lable">上传图片：</span><input type="file"><br>
+        </div>
+        <div>
+            <span class="lable">跳转链接：</span><input type="text">
+        </div> -->
+        <button class="cancle">取消</button>
+        <input id="submit" type="submit" value="提交">
+    </form>
+</body>
+
+</html>

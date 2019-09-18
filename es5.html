@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(name, age) {
+            this.name = name
+            this.age = age
+        }
+        Person.prototype.show = function () {
+            alert(this.name + "555555" + this.age)
+        }
+        var p1 = new Person('xiaowu', 55)
+        // p1.show()
+
+        function p2(name, age, job) {
+            Person.call(this, name, age)
+            this.job = job
+        }
+        p2.prototype = new Person()
+        p2.prototype.constructor = p2
+
+        var zhang = new p2('zhangsan', 22, "杀手")
+        zhang.show()
+    </script>
+</body>
+
+</html>

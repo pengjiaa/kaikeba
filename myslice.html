@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="ct">
+        <p class="para">Lyndon</p>
+        <p class="attr">123<span>dozz</span></p>
+    </div>
+    <script>
+        var ct = document.getElementById("ct");
+        console.log(ct.children);
+        console.log(ct.childNodes);
+        window.blur = function () {
+            alert(3)
+        }
+        Number.prototype.plus = function (m) {
+            let res = this + m
+
+            return res
+
+
+        }
+        Number.prototype.minus = function (n) {
+            let res = this - n
+            return res
+
+
+        }
+
+        console.log(Number(9).plus(1).minus(4))
+
+        Array.prototype.myslice = function (m, n) {
+            var res = []
+            if (arguments.length == 1) {
+                if (m >= 0 && m < this.length) {
+
+                    for (var i = 0; i < this.length; i++) {
+                        if (i >= m) {
+                            res[i - m] = this[i]
+                        }
+                    }
+                    return res
+                } else if (m > this.length) {
+                    return []
+                } else if (m < 0) {
+                    for (var i = this.length; i > 0; i--) {
+
+                    }
+                    return res
+                }
+            } else {
+
+            }
+        }
+        var x = -2
+        var y = 5
+        console.log([1, 2, 3, 4, 5, 6].myslice(x))
+        console.log([1, 2, 3, 4, 5, 6].slice(x))
+
+        function fn1() { console.log(this) }
+        function fn2() { console.log(22) }
+        fn1.call()
+        fn1.call(null)
+        fn1.call(undefined)
+
+        var aaa = [12, 32, 2, 55, 3, 99, 22]
+
+
+        var zhong = aaa.join()
+        console.log(zhong)
+        console.log(eval(zhong))
+        console.log(Math.max(eval(zhong)))
+        // console.log(Math.max(...aaa))
+        var max = aaa[0]
+        for (var i = 1; i < aaa.length; i++) {
+            if (max < aaa[i]) {
+                max = aaa[i]
+            }
+        }
+        // console.log(max)
+        var zz = (12, 43)
+        var zz = (12, 43)
+        console.log(zz)
+
+        function fnz() { console.log(this) }
+        var Ozx = {
+            fnx: function () {
+                console.log(this)
+            }
+        };
+
+        console.log(Math.max.apply(null, aaa))
+
+        var arr2 = [1, 2, 3, 4]
+        console.log(arr2.slice())
+
+        Array.prototype.ccc = function () {
+            var res = []
+            for (var i = 0; i < this.length; i++) {
+                res[res.length] = this[i]
+            }
+            return res
+        }
+        var arr3 = arr2.ccc()
+        console.log(arr3)
+        var arr4 = [{ age: 2 }, { age: 5 }, { age: 1 }, { age: 7 }]
+
+        var arr5 = arr4.sort(function (a, b) {
+            return a.age - b.age
+        })
+        console.log(arr5)
+
+        Object.prototype.aaa = function () { }
+        var obj1 = { name: "ss", age: 4 }
+
+        console.log(obj1.hasOwnProperty("name"))
+        console.log(obj1.hasOwnProperty("age"))
+        console.log(obj1.hasOwnProperty("aaa"))
+        for (var key in obj1) {
+
+            //为了把aaa这种加在原型上的方法去掉，有可能是别人加的
+            if (obj1.hasOwnProperty(key)) {
+
+                console.log(key)
+            }
+        }
+
+        var obj2 = Object.create(obj1)
+
+        function myCreate(obj) {
+            var res;
+            return obj.prototype
+        }
+
+        var obj3 = myCreate(obj1)
+
+
+    </script>
+</body>
+
+</html>

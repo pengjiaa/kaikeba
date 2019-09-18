@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <img v-if="!frontImg" class="IDFront1" v-lazy="getIcons(assetImg.IDFront1)" alt>
+    <script>
+        class Person {
+            constructor(name, age) {
+                this.name = name
+                this.age = age
+            }
+
+            show() {
+                alert(this.name + this.age)
+            };
+        }
+
+        class Worker extends Person {
+            constructor(name, age, job) {
+                super(name, age)
+                this.job = job
+            }
+
+            showjob() {
+                alert(this.job)
+            }
+        }
+        var pp = new Worker("ooo", 44, "llll")
+        pp.show()
+        pp.showjob()
+    </script>
+</body>
+
+</html>
