@@ -6,35 +6,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .div1 {
+            width: 200px;
+            height: 200px;
+            background: red;
+            /* opacity: .5; */
+            border: 1px solid #ccc;
+        }
+
+        .ani {
+
+            animation: twinkling 200ms;
+        }
+
+        @-webkit-keyframes twinkling {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes twinkling {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <div class="div1"></div>
     <img v-if="!frontImg" class="IDFront1" v-lazy="getIcons(assetImg.IDFront1)" alt>
     <script>
-        class Person {
-            constructor(name, age) {
-                this.name = name
-                this.age = age
+        window.onload = function () {
+            var oDiv1 = document.getElementsByClassName("div1")[0]
+            oDiv1.onclick = function () {
+                oDiv1.style.background = "blue"
+                setTimeout(function () {
+                    oDiv1.style.background = "red"
+                }, 100)
+            }
+            class Person {
+                constructor(name, age) {
+                    this.name = name
+                    this.age = age
+                }
+
+                show() {
+                    // alert(this.name + this.age)
+                };
             }
 
-            show() {
-                alert(this.name + this.age)
-            };
+            class Worker extends Person {
+                constructor(name, age, job) {
+                    super(name, age)
+                    this.job = job
+                }
+
+                showjob() {
+                    // alert(this.job)
+                }
+            }
+            var pp = new Worker("ooo", 44, "llll")
+            pp.show()
+            pp.showjob()
         }
-
-        class Worker extends Person {
-            constructor(name, age, job) {
-                super(name, age)
-                this.job = job
-            }
-
-            showjob() {
-                alert(this.job)
-            }
-        }
-        var pp = new Worker("ooo", 44, "llll")
-        pp.show()
-        pp.showjob()
     </script>
 </body>
 

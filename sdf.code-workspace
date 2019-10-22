@@ -1,16 +1,7 @@
 {
 	"folders": [
 		{
-			"path": "D:\\me\\nodeTest\\node3"
-		},
-		{
-			"path": "D:\\me\\nodeTest\\node1"
-		},
-		{
 			"path": "."
-		},
-		{
-			"path": "D:\\me\\nodeTest\\node4"
 		},
 		{
 			"path": "D:\\me\\nodeTest\\cainiaonode"
@@ -20,6 +11,12 @@
 		},
 		{
 			"path": "C:\\Users\\LX\\AppData\\Local\\Temp\\HZ$D.833.2767\\www"
+		},
+		{
+			"path": "D:\\me\\vue\\proo"
+		},
+		{
+			"path": "D:\\me\\webpacktest"
 		}
 	],
 	"settings": {}

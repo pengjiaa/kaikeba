@@ -61,9 +61,11 @@ router.get('/banner', async ctx => {
     })
 })
 router.post('/banner', async ctx => {
-    console.log(path.basename(ctx.request.fields.src[0].path))
+    let { title, src, href } = ctx.request.fields
+    console.log(path.basename(src[0].path))
 
-    ctx.body = "success"
+
+    ctx.redirect(`${HTTP_ROOT}/admin/banner`)
 })
 
 

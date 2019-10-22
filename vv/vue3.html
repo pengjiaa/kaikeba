@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="p1">{{message}}</p>
+    <p id="p2" style="color: red;">222</p>
+    <script>
+        window.onload = function () {
+            var data = {
+                message: ""
+            }
+
+            var _data = {
+                message: ""
+            }
+            var oP1 = document.getElementById("p1")
+            Object.defineProperty(data, "message", {
+                enumerable: true,
+                configurable: true,
+                get: function () {
+                    return data.message
+                },
+                set: function (newVal) {
+                    console.log(newVal)
+                    // data.message = newVal
+                    render("message", newVal)
+                }
+            })
+            setInterval(function () {
+                data.message = "ddd"
+            }, 1000)
+            function render(name, newVal) {
+                console.log(typeof document.body.innerHTML)
+                oP1.innerHTML.replace(name, newVal)
+                console.log(oP1.innerHTML)
+                // window.location.reload()
+            }
+        }
+    </script>
+</body>
+
+</html>

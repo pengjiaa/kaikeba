@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" class="name">
+    <span id="s1"></span>
+</body>
+<script>
+    var dog = {}
+    Object.defineProperties(dog, {
+        _age: {
+            value: null,
+            writable: true,
+            enumerable: true,
+            configurable: true,
+        }, //为dog对象添加数据属性存储age属性值
+        age: {
+            enumerable: true,
+            configurable: true,
+            get: function () {
+                console.log("输出" + this._age)
+                return this._age
+            },
+            set: function (value) {
+                console.log("输入" + value)
+                this._age = value
+                document.querySelector("#s1").innerHTML = this._age
+            }
+        }
+    })
+    document.querySelector(".name").addEventListener("keyup", function (e) {
+        dog.age = e.target.value
+    })
+</script>
+
+</html>

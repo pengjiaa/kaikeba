@@ -1,5 +1,6 @@
 const koa = require("koa")
 const router = require("koa-router")
+const Mock = require("mockjs")
 
 let serve = new koa()
 serve.listen(2000)
@@ -13,7 +14,17 @@ rr.get("/:id", async (ctx, next) => {
 })
 
 rr.get("/a", async (ctx, next) => {
-    ctx.body = "aaaa"
+
+    var data = Mock.mock({
+        // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
+        'list|1-10': [{
+            // 属性 id 是一个自增数，起始值为 1，每次增 1
+            'id|+1': 1
+        }]
+    })
+    // 输出结果
+    console.log(JSON.stringify(data, null, 4))
+    ctx.body = JSON.stringify(data, null, 4)
 })
 
 

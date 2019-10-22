@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+        name: <span id="span1">{{name}}</span>
+        age: <span>12</span>
+        <button id="btn">change</button>
+    </div>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById("div1")
+            var template = oDiv.innerHTML
+            var oBtn = document.getElementById("btn")
+            var oSpan1 = document.getElementById("span1")
+            console.log(oBtn)
+            var data = {
+                name: "lisi",
+                age: "12"
+            }
+            // oBtn.onclick = function () {
+            //     // alert(3)
+            //     data.name += "ddd"
+            //     console.log(data)
+            // }
+            // setInterval(() => {
+
+            //     data.name = new Date()
+            // }, 1000);
+            var bValue
+            Object.defineProperty(data, "name", {
+                enumerable: true,
+                configurable: true,
+                set: function (val) {
+                    bValue = val
+                    console.log("变了")
+                    console.log(oDiv.innerHTML)
+                    // oSpan1.innerHTML = val
+                    // oDiv.innerHTML = oDiv.innerHTML.replace(/\{\{\w*\}\}/g, val)
+                    render()
+                },
+                get: function () {
+                    return bValue;
+                },
+            })
+
+            // console.log(data)
+            // render()
+
+            function render() {
+
+                oDiv.innerHTML = template.replace(/\{\{\w*\}\}/g, str => {
+
+                    let aStr = str.substring(2, str.length - 2)
+                    return data[aStr]
+                })
+            }
+        }
+    </script>
+</body>
+
+</html>
