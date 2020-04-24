@@ -1,23 +1,44 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "D:\\me\\nodeTest\\cainiaonode"
-		},
-		{
-			"path": "C:\\Users\\LX\\AppData\\Local\\Temp\\HZ$D.833.2767\\manager"
-		},
-		{
-			"path": "C:\\Users\\LX\\AppData\\Local\\Temp\\HZ$D.833.2767\\www"
-		},
-		{
-			"path": "D:\\me\\vue\\proo"
-		},
-		{
-			"path": "D:\\me\\webpacktest"
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "D:\\me\\nodeTest\\cainiaonode"
+    },
+    {
+      "path": "D:\\me\\vue\\proo"
+    },
+    {
+      "path": "D:\\me\\webpacktest"
+    },
+    {
+      "path": "D:\\me\\vue\\vue-next"
+    },
+    {
+      "path": "D:\\baodan"
+    },
+    {
+      "path": "D:\\me\\nodeTest\\koaTest"
+    },
+    {
+      "path": "D:\\me\\kaikeba8"
+    },
+    {
+      "path": "D:\\me\\vue"
+    },
+    {
+      "path": "D:\\me\\review"
+    },
+    {
+      "path": "D:\\me\\nodeTest"
+    },
+    {
+      "path": "D:\\me\\js"
+    },
+    {
+      "path": "D:\\me\\react"
+    }
+  ],
+  "settings": {}
 }
